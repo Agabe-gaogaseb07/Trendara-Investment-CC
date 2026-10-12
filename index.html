@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trendara Investment CC | Poultry Products</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: var(--bg)">
+    <div class="navbar">
+        <img src="logo.jpg" alt="Trendara Investment CC Logo" width="auto" height="100px">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+    <h1>TRENDARA <span>INVESTMENT</span> CC</h1>
+    <div class="slide">
+        <img src="Chicken.jpg" alt="Chicken">
+        <img src="ChickenWings.jpg" alt="Chicken wings">
+        <img src="EggsInTray.jpg" alt="Eggs in a tray">
+        <img src="RawChickenMeat.jpg" alt="Raw chicken meat">
+    </div>
+    <br>
+    <p id="about" name="about">We are a Poultry Farm that specializes with poulty products and Photography at substantially offordable prices <br>
+    and good quality.</p>
+    <article>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur aliquam ullam pariatur, cupiditate dolore, ipsam itaque id exercitationem similique illum, a tempore saepe facere deleniti sapiente accusamus? Repellat, dolor provident.</article>
+    <div class="item-card">
+        <h2>Order Poultry Products</h2>
+        <p>Select products and quantities, then send your order directly on WhatsApp.</p>
+        <form>
+            <img src="RawChickenMeat.jpg" width="380px">
+            <label>Fresh Chicken — $8.00 each</label>
+            <input type="number" min="0" value="0" data-product="Fresh Chicken" data-price="8">
+            
+            <img src="ChickenWings1.jpg" width="380px">
+            <label>Chicken Wings — $6.00 per pack</label>
+            <input type="number" min="0" value="0" data-product="Chicken Wings" data-price="6">
+            
+            <img src="Eggs.jpg" width="380px">
+            <label>Tray of Eggs — $5.00 each</label>
+            <input type="number" min="0" value="0" data-product="Tray of Eggs" data-price="5">
+
+            <img src="RawChickenMeat1.jpg" width="380px">
+            <label>Raw Chicken Meat — $10.00 per pack</label>
+            <input type="number" min="0" value="0" data-product="Raw Chicken Meat" data-price="10">
+
+            <label>Your name</label>
+            <input type="text" id="customer-name" required>
+
+            <label>Order method</label>
+            <label>Pickup</label>
+            <input type="radio" name="order-method" value="pickup" required>
+
+            <label>Delivery</label>
+            <input type="radio" name="order-method" value="delivery">
+            <button type="submit">Send Order on WhatsApp</button>
+            <p id="order-status" role="status"></p>
+        </form>
+    </div>
+
+    <div class="services" id="services">
+        <h2>Our Services</h2>
+        <p>We offer a wide range of poultry products and photography services to meet all your needs.</p>
+        <div class="photography">
+            <h1>Photography Services</h1>
+            <ul style="display: block; position: absolute; margin-top: 20%; margin-left: 10%;">
+                <li>Portrait Photography</li>
+                <li>Event Coverage</li>
+                <li>Product Photography</li>
+                <li>College Photography</li>
+                <li>Graduation Photography</li>
+            </ul>
+            <p>Professional photography for your personal needs.</p>
+            <img src="Photo.jpg" alt="Photography Services" width="380px" height="380vh;">
+        </div>
+        <div class="request">
+            <h1>Request a Quote</h1>
+            <p>Contact us for a personalized quote for our services.</p>
+            <form action="mailto:business@example.com" method="post" enctype="text/plain">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Send Request</button>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        // Replace with the business number, including country code, without +, spaces, or dashes.
+        const whatsappNumber = "+264818038626";
+
+        document.getElementById("order-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const status = document.getElementById("order-status");
+            const products = Array.from(this.querySelectorAll("[data-product]"))
+                .map(input => ({ name: input.dataset.product, quantity: Number(input.value), price: Number(input.dataset.price) }))
+                .filter(product => product.quantity > 0);
+
+            if (!products.length) {
+                status.textContent = "Please select at least one product.";
+                return;
+            }
+            if (!whatsappNumber || !whatsappNumber.replace(/\D/g, "")) {
+                status.textContent = "Add the business WhatsApp number in the script first.";
+                return;
+            }
+
+            const total = products.reduce((sum, product) => sum + product.quantity * product.price, 0);
+            const lines = products.map(product => `- ${product.name} x${product.quantity}: $${(product.quantity * product.price).toFixed(2)}`);
+            const orderMethod = this.querySelector('input[name="order-method"]:checked').value;
+            const message = `Hello, I would like to place an order.\n\nName: ${document.getElementById("customer-name").value}\nOrder method: ${orderMethod}\n\n${lines.join("\n")}\n\nEstimated total: $${total.toFixed(2)}`;
+
+            try {
+                const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`;
+                const whatsappWindow = window.open(whatsappUrl, "_blank");
+
+                if (!whatsappWindow) {
+                    throw new Error("popup-blocked");
+                }
+
+                status.textContent = "Order details opened in WhatsApp. Please tap Send to complete your order.";
+                status.style.color = "green";
+            } catch (error) {
+                status.textContent = "Unable to open WhatsApp. Please allow pop-ups and try again.";
+                status.style.color = "red";
+            }
+        });
+    </script>
+</body>
+</html>
