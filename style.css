@@ -136,8 +136,7 @@ p{
     display: flex;
     flex-direction: column;
     width: min(320px, calc(100% - 40px));
-    transform: translateX(50%);
-    margin-right: 50%;
+    margin: 24px auto;
     padding: 20px;
     vertical-align: top;
     background: var(--surface);
@@ -229,4 +228,5 @@ button:hover{
         width: calc(100% - 20px);
         margin-bottom: 32px;
     }
+
 }
