@@ -3,19 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quality poultry products and professional photography services from Trendara Investment CC.">
+    <meta name="theme-color" content="#24140f">
     <title>Trendara Investment CC | Poultry Products</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .mobile-nav-toggle {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                position: relative;
+            }
+
+            .navbar .mobile-nav-toggle {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.6rem 0.85rem;
+                border: 1px solid currentColor;
+                border-radius: 0.35rem;
+                background: transparent;
+                color: inherit;
+                font: inherit;
+                cursor: pointer;
+            }
+
+            .navbar > ul#site-navigation {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                z-index: 100;
+                min-width: 12rem;
+                margin: 0;
+                padding: 0.5rem 0;
+                flex-direction: column;
+                background: #24140f;
+                box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 20%);
+                list-style: none;
+            }
+
+            .navbar > ul#site-navigation.is-open {
+                display: flex;
+            }
+
+            .navbar > ul#site-navigation a {
+                display: block;
+                padding: 0.75rem 1rem;
+            }
+        }
+    </style>
 </head>
-<body style="background-color: var(--bg)">
+<body>
     <div class="navbar">
-        <img src="logo.jpg" alt="Trendara Investment CC Logo" width="auto" height="100px">
-        <ul>
-            <li><a href="#">Home</a></li>
+        <a class="brand" href="#home" aria-label="Trendara Investment CC home">
+            <img src="logo.jpg" alt="Trendara Investment CC Logo">
+        </a>
+        <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+            <span aria-hidden="true">☰</span> Menu
+        </button>
+        <ul id="site-navigation">
+            <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
+    <main id="home">
     <h1>TRENDARA <span>INVESTMENT</span> CC</h1>
     <div class="slide">
         <img src="Chicken.jpg" alt="Chicken">
@@ -24,38 +80,45 @@
         <img src="RawChickenMeat.jpg" alt="Raw chicken meat">
     </div>
     <br>
-    <p id="about" name="about">We are a Poultry Farm that specializes with poulty products and Photography at substantially offordable prices <br>
-    and good quality.</p>
+    <p class="intro" id="about">We are a poultry farm specializing in quality poultry products and photography at affordable prices.</p>
     <article>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur aliquam ullam pariatur, cupiditate dolore, ipsam itaque id exercitationem similique illum, a tempore saepe facere deleniti sapiente accusamus? Repellat, dolor provident.</article>
     <div class="item-card">
         <h2>Order Poultry Products</h2>
         <p>Select products and quantities, then send your order directly on WhatsApp.</p>
-        <form>
-            <img src="RawChickenMeat.jpg" width="380px">
-            <label>Fresh Chicken — $8.00 each</label>
-            <input type="number" min="0" value="0" data-product="Fresh Chicken" data-price="8">
-            
-            <img src="ChickenWings1.jpg" width="380px">
-            <label>Chicken Wings — $6.00 per pack</label>
-            <input type="number" min="0" value="0" data-product="Chicken Wings" data-price="6">
-            
-            <img src="Eggs.jpg" width="380px">
-            <label>Tray of Eggs — $5.00 each</label>
-            <input type="number" min="0" value="0" data-product="Tray of Eggs" data-price="5">
+        <form id="order-form">
+            <div class="product-grid">
+                <div class="product-option">
+                    <img src="RawChickenMeat.jpg" alt="Fresh chicken">
+                    <label for="fresh-chicken">Fresh Chicken — $8.00 each</label>
+                    <input id="fresh-chicken" type="number" min="0" value="0" data-product="Fresh Chicken" data-price="8">
+                </div>
+                <div class="product-option">
+                    <img src="ChickenWings1.jpg" alt="Chicken wings">
+                    <label for="chicken-wings">Chicken Wings — $6.00 per pack</label>
+                    <input id="chicken-wings" type="number" min="0" value="0" data-product="Chicken Wings" data-price="6">
+                </div>
+                <div class="product-option">
+                    <img src="Eggs.jpg" alt="Tray of eggs">
+                    <label for="egg-tray">Tray of Eggs — $5.00 each</label>
+                    <input id="egg-tray" type="number" min="0" value="0" data-product="Tray of Eggs" data-price="5">
+                </div>
+                <div class="product-option">
+                    <img src="RawChickenMeat1.jpg" alt="Raw chicken meat">
+                    <label for="raw-chicken">Raw Chicken Meat — $10.00 per pack</label>
+                    <input id="raw-chicken" type="number" min="0" value="0" data-product="Raw Chicken Meat" data-price="10">
+                </div>
+            </div>
 
-            <img src="RawChickenMeat1.jpg" width="380px">
-            <label>Raw Chicken Meat — $10.00 per pack</label>
-            <input type="number" min="0" value="0" data-product="Raw Chicken Meat" data-price="10">
+            <div class="order-details">
+                <label for="customer-name">Your name</label>
+                <input type="text" id="customer-name" autocomplete="name" required>
 
-            <label>Your name</label>
-            <input type="text" id="customer-name" required>
-
-            <label>Order method</label>
-            <label>Pickup</label>
-            <input type="radio" name="order-method" value="pickup" required>
-
-            <label>Delivery</label>
-            <input type="radio" name="order-method" value="delivery">
+                <fieldset>
+                    <legend>Order method</legend>
+                    <label class="radio-option"><input type="radio" name="order-method" value="pickup" required> Pickup</label>
+                    <label class="radio-option"><input type="radio" name="order-method" value="delivery"> Delivery</label>
+                </fieldset>
+            </div>
             <button type="submit">Send Order on WhatsApp</button>
             <p id="order-status" role="status"></p>
         </form>
@@ -66,7 +129,7 @@
         <p>We offer a wide range of poultry products and photography services to meet all your needs.</p>
         <div class="photography">
             <h1>Photography Services</h1>
-            <ul style="display: block; position: absolute; margin-top: 20%; margin-left: 10%;">
+            <ul>
                 <li>Portrait Photography</li>
                 <li>Event Coverage</li>
                 <li>Product Photography</li>
@@ -74,9 +137,9 @@
                 <li>Graduation Photography</li>
             </ul>
             <p>Professional photography for your personal needs.</p>
-            <img src="Photo.jpg" alt="Photography Services" width="380px" height="380vh;">
+            <img src="Photo.jpg" alt="Photography Services">
         </div>
-        <div class="request">
+        <div class="request" id="contact">
             <h1>Request a Quote</h1>
             <p>Contact us for a personalized quote for our services.</p>
             <form action="mailto:business@example.com" method="post" enctype="text/plain">
@@ -88,15 +151,37 @@
 
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="4" required></textarea>
-
                 <button type="submit">Send Request</button>
+            </form>
         </div>
     </div>
-
-
-
+    </main>
 
     <script>
+        const navToggle = document.querySelector(".mobile-nav-toggle");
+        const siteNavigation = document.getElementById("site-navigation");
+
+        navToggle.addEventListener("click", function () {
+            const isOpen = this.getAttribute("aria-expanded") === "true";
+            this.setAttribute("aria-expanded", String(!isOpen));
+            siteNavigation.classList.toggle("is-open", !isOpen);
+        });
+
+        siteNavigation.addEventListener("click", function (event) {
+            if (event.target.closest("a")) {
+                siteNavigation.classList.remove("is-open");
+                navToggle.setAttribute("aria-expanded", "false");
+            }
+        });
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") {
+                siteNavigation.classList.remove("is-open");
+                navToggle.setAttribute("aria-expanded", "false");
+                navToggle.focus();
+            }
+        });
+
         // Replace with the business number, including country code, without +, spaces, or dashes.
         const whatsappNumber = "+264818038626";
 
