@@ -1,311 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#173b32">
-  <meta name="description" content="Reliable commercial and residential cleaning and laundry solutions from Paloh Unique Project & Trading CC.">
-  <title>Palomah's Laundry Cleaning Service</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      color-scheme: dark;
-      --white: #ffffff;
-      --gold: #d4af37;
-      --black: #000000;
-      --ink: var(--white);
-      --forest-deep: var(--black);
-      --moss: var(--gold);
-      --lime: var(--gold);
-      --display: "Manrope", "Trebuchet MS", sans-serif;
-      --body: "DM Sans", "Trebuchet MS", sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quality poultry products and professional photography services from Trendara Investment CC.">
+    <meta name="theme-color" content="#24140f">
+    <title>Trendara Investment CC | Poultry Products</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .mobile-nav-toggle {
+            display: none;
+        }
 
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--body); font-size: 16px; line-height: 1.55; }
-    a { color: inherit; text-decoration: none; }
-    button, input, select, textarea { font: inherit; }
-    button, a { -webkit-tap-highlight-color: transparent; }
-    img { display: block; max-width: 100%; }
-    .wrap { width: min(1240px, calc(100% - 64px)); margin-inline: auto; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--moss); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
-    .eyebrow::before { width: 23px; height: 1px; background: currentColor; content: ""; }
-    .site-header { position: absolute; z-index: 5; inset: 0 0 auto; color: var(--white); }
-    .nav { height: 88px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgb(255 255 255 / 24%); }
-    .brand { display: inline-flex; align-items: center; gap: 12px; min-width: 176px; }
-    .brand img { width: 300px; height: 80px; object-fit: cover; object-position: center; }
-    .brand span { max-width: 118px; font-family: var(--display); font-size: 11px; line-height: 1.25; font-weight: 700; }
-    .nav-links { display: flex; align-items: center; gap: 35px; font-size: 13px; font-weight: 500; }
-    .nav-links a:not(.nav-cta) { opacity: .84; transition: opacity .2s; }
-    .nav-links a:not(.nav-cta):hover { opacity: 1; }
-    .nav-cta { min-height: 42px; padding: 10px 17px; display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgb(255 255 255 / 58%); border-radius: 2px; }
-    .nav-cta span { color: var(--lime); font-size: 17px; line-height: 1; }
-    .menu-toggle { display: none; width: 44px; height: 44px; color: var(--white); border: 1px solid rgb(255 255 255 / 45%); border-radius: 2px; background: transparent; cursor: pointer; }
+        @media (max-width: 768px) {
+            .navbar {
+                position: relative;
+            }
 
-    .hero { min-height: 710px; height: min(860px, 100svh); position: relative; display: flex; align-items: center; overflow: hidden; color: var(--white); background: var(--forest-deep); }
-    .hero::before { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(0 0 0 / 82%) 0%, rgb(0 0 0 / 68%) 42%, rgb(0 0 0 / 24%) 100%), url("1.jpeg") center 44% / cover; content: ""; transform: scale(1.015); animation: settle 1.2s ease-out both; }
-    .hero::after { position: absolute; inset: auto 0 0; height: 170px; background: linear-gradient(transparent, rgb(0 0 0 / 38%)); content: ""; }
-    .hero-content { position: relative; z-index: 1; width: min(1240px, calc(100% - 64px)); margin: 60px auto 0; padding-bottom: 38px; animation: rise .7s .1s ease-out both; }
-    .hero .eyebrow { color: var(--lime); }
-    h1, h2, h3, p { margin-top: 0; }
-    h1 { max-width: 690px; margin: 24px 0 22px; font-family: var(--display); font-size: clamp(50px, 6.6vw, 86px); line-height: 1.04; letter-spacing: 0; font-weight: 600; }
-    h1 em { color: var(--lime); font-style: normal; }
-    .hero-copy { max-width: 510px; margin-bottom: 32px; color: rgb(255 255 255 / 84%); font-size: 17px; }
-    .button { min-height: 52px; padding: 14px 20px; display: inline-flex; align-items: center; justify-content: center; gap: 17px; border: 1px solid transparent; border-radius: 2px; font-size: 13px; font-weight: 700; transition: background .2s, color .2s, border-color .2s; cursor: pointer; }
-    .button-primary { color: var(--black); background: var(--gold); }
-    .button-primary:hover { background: var(--white); color: var(--black); }
-    .button-arrow { font-size: 19px; line-height: 1; }
-    .hero-note { position: absolute; z-index: 1; right: max(32px, calc((100vw - 1240px) / 2)); bottom: 40px; color: rgb(255 255 255 / 78%); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; writing-mode: vertical-rl; }
+            .navbar .mobile-nav-toggle {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.6rem 0.85rem;
+                border: 1px solid currentColor;
+                border-radius: 0.35rem;
+                background: transparent;
+                color: inherit;
+                font: inherit;
+                cursor: pointer;
+            }
 
-    .intro { padding: 105px 0 104px; }
-    .intro-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 11%; align-items: start; }
-    .intro h2, .section-heading h2 { margin: 18px 0 0; font-family: var(--display); font-size: clamp(34px, 4.1vw, 53px); font-weight: 600; line-height: 1.12; }
-    .intro-copy { padding-top: 34px; }
-    .intro-copy p { max-width: 570px; margin-bottom: 22px; color: var(--muted); }
-    .text-link { display: inline-flex; align-items: center; gap: 10px; color: var(--forest); font-size: 13px; font-weight: 700; }
-    .text-link span { color: var(--moss); font-size: 18px; transition: transform .2s; }
-    .text-link:hover span { transform: translateX(4px); }
+            .navbar > ul#site-navigation {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                z-index: 100;
+                min-width: 12rem;
+                margin: 0;
+                padding: 0.5rem 0;
+                flex-direction: column;
+                background: #24140f;
+                box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 20%);
+                list-style: none;
+            }
 
-    .services { padding: 100px 0 108px; background: var(--black); }
-    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 36px; margin-bottom: 47px; }
-    .section-heading > p { max-width: 350px; margin-bottom: 6px; color: var(--muted); font-size: 14px; }
-    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
-    .service { min-height: 312px; position: relative; display: flex; flex-direction: column; justify-content: end; overflow: hidden; padding: 27px; color: var(--white); background: var(--forest); }
-    .service::before { position: absolute; inset: 0; background: linear-gradient(0deg, rgb(0 0 0 / 90%) 1%, rgb(0 0 0 / 18%) 100%), var(--service-image) center / cover; content: ""; transition: transform .5s; }
-    .service:hover::before { transform: scale(1.04); }
-    .service > * { position: relative; }
-    .service-index { position: absolute; top: 22px; right: 23px; color: rgb(255 255 255 / 82%); font-size: 11px; }
-    .service h3 { max-width: 270px; margin: 0 0 8px; font-family: var(--display); font-size: 25px; line-height: 1.2; font-weight: 600; }
-    .service p { max-width: 300px; margin: 0; color: rgb(255 255 255 / 78%); font-size: 13px; }
-    .service:nth-child(1) { --service-image: url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=82"); }
-    .service:nth-child(2) { --service-image: url("https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&w=1000&q=82"); }
-    .service:nth-child(3) { --service-image: url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=82"); }
-    .service:nth-child(4) { --service-image: url("4.jpeg"); }
-    .service:nth-child(5) { --service-image: url("10.jpeg"); }
-    .service:nth-child(6) { --service-image: url("12.jpeg"); }
+            .navbar > ul#site-navigation.is-open {
+                display: flex;
+            }
 
-    .values { padding: 100px 0 106px; color: var(--white); background: var(--forest); }
-    .values-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 10%; }
-    .values h2 { max-width: 390px; margin: 19px 0 24px; font-family: var(--display); font-size: clamp(36px, 4.2vw, 54px); font-weight: 600; line-height: 1.12; }
-    .values-lead { max-width: 395px; color: rgb(255 255 255 / 71%); }
-    .value-list { border-top: 1px solid rgb(255 255 255 / 24%); }
-    .value-item { display: grid; grid-template-columns: 45px 1fr; gap: 17px; padding: 22px 0; border-bottom: 1px solid rgb(255 255 255 / 24%); }
-    .value-item b { color: var(--lime); font-family: var(--display); font-size: 12px; font-weight: 600; }
-    .value-item h3 { margin: 0 0 5px; font-family: var(--display); font-size: 17px; font-weight: 600; }
-    .value-item p { max-width: 450px; margin: 0; color: rgb(255 255 255 / 70%); font-size: 13px; }
-
-    .approach { padding: 99px 0; }
-    .approach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9%; align-items: center; }
-    .approach-visual { min-height: 380px; position: relative; overflow: hidden; background: var(--forest); }
-    .approach-visual::before { position: absolute; inset: 0; background: linear-gradient(0deg, rgb(12 34 27 / 37%), transparent 62%), url("8.jpeg") center / cover; content: ""; }
-    .visual-caption { position: absolute; bottom: 22px; left: 24px; color: var(--white); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
-    .approach h2 { margin: 17px 0 21px; font-family: var(--display); font-size: clamp(35px, 4vw, 50px); line-height: 1.12; font-weight: 600; }
-    .approach-copy > p { max-width: 470px; margin-bottom: 27px; color: var(--muted); }
-    .principles { display: grid; grid-template-columns: 1fr 1fr; gap: 13px 19px; padding-top: 22px; border-top: 1px solid var(--line); }
-    .principles span { display: flex; align-items: center; gap: 9px; color: var(--forest); font-size: 12px; font-weight: 700; }
-    .principles span::before { width: 6px; height: 6px; border-radius: 50%; background: var(--moss); content: ""; }
-
-    .contact { padding: 83px 0; color: var(--white); background: var(--forest-deep); }
-    .contact-row { display: flex; justify-content: space-between; align-items: center; gap: 40px; }
-    .contact .eyebrow { color: var(--lime); }
-    .contact h2 { max-width: 660px; margin: 15px 0 10px; font-family: var(--display); font-size: clamp(34px, 4vw, 49px); line-height: 1.12; font-weight: 600; }
-    .contact p { margin-bottom: 0; color: rgb(255 255 255 / 70%); }
-    .contact .button { flex: 0 0 auto; }
-    .site-footer { padding: 30px 0; color: rgb(255 255 255 / 65%); background: #050505; font-size: 11px; }
-    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .footer-name { color: var(--white); font-weight: 700; }
-    .footer-links { display: flex; gap: 22px; }
-    .footer-links a:hover { color: var(--white); }
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes settle { from { transform: scale(1.06); } to { transform: scale(1.015); } }
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } }
-
-    @media (max-width: 760px) {
-      .wrap, .hero-content { width: min(100% - 40px, 560px); }
-      .nav { height: 72px; }
-      .brand { min-width: 0; gap: 8px; }
-      .brand img { width: 65px; height: 45px; }
-      .brand span { max-width: 103px; font-size: 10px; }
-      .menu-toggle { display: inline-grid; place-items: center; }
-      .menu-toggle svg { width: 19px; height: 19px; }
-      .nav-links { position: absolute; top: 72px; right: 20px; left: 20px; display: none; align-items: stretch; gap: 0; padding: 10px 18px; border: 1px solid rgb(255 255 255 / 19%); background: var(--forest-deep); }
-      .nav-links.open { display: flex; flex-direction: column; }
-      .nav-links > a:not(.nav-cta) { padding: 13px 0; border-bottom: 1px solid rgb(255 255 255 / 14%); }
-      .nav-cta { justify-content: center; margin: 12px 0 4px; }
-      .hero { min-height: 680px; height: 92svh; max-height: 840px; }
-      .hero::before { background-position: 58% center; background-image: linear-gradient(90deg, rgb(13 34 28 / 87%) 0%, rgb(13 34 28 / 63%) 67%, rgb(13 34 28 / 39%) 100%), url("1.jpeg"); }
-      h1 { max-width: 550px; font-size: clamp(47px, 11vw, 69px); }
-      .hero-copy { max-width: 440px; font-size: 15px; }
-      .hero-note { display: none; }
-      .intro, .services, .values, .approach { padding-block: 72px; }
-      .intro-grid, .values-grid, .approach-grid { grid-template-columns: 1fr; gap: 24px; }
-      .intro-copy { padding-top: 0; }
-      .section-heading { display: block; margin-bottom: 30px; }
-      .section-heading > p { margin: 18px 0 0; }
-      .service-grid { grid-template-columns: 1fr; gap: 12px; }
-      .service { min-height: 260px; }
-      .values-grid { gap: 25px; }
-      .approach-grid { gap: 35px; }
-      .approach-visual { min-height: 300px; }
-      .contact { padding: 68px 0; }
-      .contact-row { align-items: flex-start; flex-direction: column; gap: 25px; }
-      .footer-row { align-items: flex-start; flex-direction: column; }
-      .hero-content a{
-        text-align: center;
-        display: flex;
-        transform: translateX(50%);
-        margin-right: 50%;
-        margin-left: auto;
-      }
-    }
-    @media (max-width: 390px) {
-      .wrap, .hero-content { width: calc(100% - 32px); }
-      .brand span { max-width: 93px; font-size: 9px; }
-      .hero { min-height: 650px; }
-      h1 { font-size: 46px; }
-      .principles { grid-template-columns: 1fr; }
-      .footer-links { flex-wrap: wrap; gap: 12px 18px; }
-    }
-  </style>
+            .navbar > ul#site-navigation a {
+                display: block;
+                padding: 0.75rem 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header class="site-header">
-    <nav class="nav wrap" aria-label="Main navigation">
-      <a class="brand" href="#home" aria-label="Paloh home">
-        <img src="Palog Logo 2.jpg">
-      </a>
-      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-      <div class="nav-links" id="nav-links">
-        <a href="#services">Services</a>
-        <a href="#about">About Paloh</a>
-        <a href="#approach">Our approach</a>
-        <a class="nav-cta" href="#contact">Contact <span aria-hidden="true">↗</span></a>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-content">
-        <span class="eyebrow"><em>Palomah</em></span>
-        <h1>The Best Laundry in Town</h1>
-        <p class="hero-copy">Founded by Palomah, the well-known laundry girl in <em>Tsumeb</em></p>
-        <a class="button button-primary" href="#services">Explore our services <span class="button-arrow" aria-hidden="true">→</span></a>
-        <a style="text-align: center; display: flex; margin-top: 20px; flex-direction:row; transform: translateX(40%); font-style: italic; font-size: x-large;">6TH ROAD TSUMEB</a>
-      </div>
-    </section>
-
-    <section class="intro" id="about">
-      <div class="wrap intro-grid reveal">
-        <div>
-          <span class="eyebrow">A cleaner way forward</span>
-          <h2>More time for what matters. A space that feels cared for.</h2>
-        </div>
-        <div class="intro-copy">
-          <p>Paloh Unique Project &amp; Trading CC provides reliable cleaning and laundry services for homes, offices and commercial spaces. We bring care, consistency and close attention to the details that make a real difference.</p>
-          <p>From a regular clean to a complete post-construction reset, every service is tailored to your space and your schedule.</p>
-          <a class="text-link" href="#approach">Get to know Paloh <span aria-hidden="true">→</span></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="services" id="services">
-      <div class="wrap">
-        <div class="section-heading reveal">
-          <div><span class="eyebrow">What we do</span><h2>Care for every kind of space.</h2></div>
-          <p>Flexible cleaning and laundry support for households, workplaces and hospitality teams.</p>
-        </div>
-        <div class="service-grid">
-          <article class="service reveal"><span class="service-index">01 / CLEANING</span><h3>Commercial &amp; office cleaning</h3><p>Scheduled upkeep, workstation sanitation, carpet care and deep cleans for professional spaces.</p></article>
-          <article class="service reveal"><span class="service-index">02 / LAUNDRY</span><h3>Commercial &amp; bulk laundry</h3><p>Carefully handled linen, uniforms, towels and table settings for hospitality and healthcare.</p></article>
-          <article class="service reveal"><span class="service-index">03 / SPECIALIST</span><h3>Post-construction cleanup</h3><p>Dust removal, debris clearing and final surface care before a newly finished space opens.</p></article>
-          <article class="service reveal"><span class="service-index">04 / AT HOME</span><h3>Residential housekeeping</h3><p>Regular home maintenance, spring cleaning and move-in or move-out sanitation.</p></article>
-          <article class="service reveal"><span class="service-index">05 / GARMENT CARE</span><h3>Wash, dry &amp; fold</h3><p>Everyday laundry, delicate fabric care, stain treatment, pressing and ironing.</p></article>
-          <article class="service reveal"><span class="service-index">06 / ON YOUR SCHEDULE</span><h3>Pick-up &amp; delivery</h3><p>Convenient laundry collection and return, planned around your home or business.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="values" id="approach">
-      <div class="wrap values-grid">
-        <div class="reveal">
-          <span class="eyebrow">The Paloh difference</span>
-          <h2>Good work. Thoughtful care. Every visit.</h2>
-          <p class="values-lead">A dependable service starts with people who care about the result and the way they get there.</p>
-        </div>
-        <div class="value-list reveal">
-          <article class="value-item"><b>01</b><div><h3>Quality you can count on</h3><p>Careful quality checks help ensure every clean and laundry order meets a consistent standard.</p></div></article>
-          <article class="value-item"><b>02</b><div><h3>Considerate products</h3><p>Eco-friendly, biodegradable products are chosen with families, pets and the environment in mind.</p></div></article>
-          <article class="value-item"><b>03</b><div><h3>Trained, vetted professionals</h3><p>Our team is trained to work with care, respect your privacy and treat every space thoughtfully.</p></div></article>
-          <article class="value-item"><b>04</b><div><h3>Made to fit your needs</h3><p>Flexible service packages are tailored to your space, schedule and budget.</p></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="approach">
-      <div class="wrap approach-grid">
-        <div class="approach-visual reveal"><span class="visual-caption">A better feeling, room by room</span></div>
-        <div class="approach-copy reveal">
-          <span class="eyebrow">Our promise</span>
-          <h2>Clean spaces. Confidence in every detail.</h2>
-          <p>We believe a well-cared-for space can make every day feel a little easier. Our mission is to deliver seamless, tailored cleaning and laundry solutions that save you time and uphold high standards of hygiene and garment care.</p>
-          <div class="principles"><span>Reliable service</span><span>Hygiene first</span><span>Precise care</span><span>Lower-impact choices</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="wrap contact-row reveal">
-        <div><span class="eyebrow">Let’s get started</span><h2>Tell us what needs a little more care.</h2><p>Get in touch to discuss a cleaning or laundry service tailored to you.</p></div>
-        <a class="button button-primary" href="quotation.html">Rent a Basket <span class="button-arrow" aria-hidden="true">↗</span></a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap footer-row">
-      <span class="footer-name">Paloh Unique Project &amp; Trading CC</span>
-      <span>Cleaning &amp; laundry solutions, delivered with care.</span>
-      <div class="footer-links"><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact: +264 81 689 2529</a></div>
-      <span>© <span id="year"></span> Paloh</span>
+    <div class="navbar">
+        <a class="brand" href="#home" aria-label="Trendara Investment CC home">
+            <img src="logo.jpg" alt="Trendara Investment CC Logo">
+        </a>
+        <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+            <span aria-hidden="true">☰</span> Menu
+        </button>
+        <ul id="site-navigation">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </div>
-  </footer>
-  <script>
-    const menuButton = document.querySelector('.menu-toggle');
-    const navigation = document.querySelector('.nav-links');
+    <main id="home">
+    <h1>TRENDARA <span>INVESTMENT</span> CC</h1>
+    <div class="slide">
+        <img src="Chicken.jpg" alt="Chicken">
+        <img src="ChickenWings.jpg" alt="Chicken wings">
+        <img src="EggsInTray.jpg" alt="Eggs in a tray">
+        <img src="RawChickenMeat.jpg" alt="Raw chicken meat">
+    </div>
+    <br>
+    <p class="intro" id="about">We are a poultry farm specializing in quality poultry products and photography at affordable prices.</p>
+    <article>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur aliquam ullam pariatur, cupiditate dolore, ipsam itaque id exercitationem similique illum, a tempore saepe facere deleniti sapiente accusamus? Repellat, dolor provident.</article>
+    <div class="item-card">
+        <h2>Order Poultry Products</h2>
+        <p>Select products and quantities, then send your order directly on WhatsApp.</p>
+        <form id="order-form">
+            <div class="product-grid">
+                <div class="product-option">
+                    <img src="RawChickenMeat.jpg" alt="Fresh chicken">
+                    <label for="fresh-chicken">Fresh Chicken — $8.00 each</label>
+                    <input id="fresh-chicken" type="number" min="0" value="0" data-product="Fresh Chicken" data-price="8">
+                </div>
+                <div class="product-option">
+                    <img src="ChickenWings1.jpg" alt="Chicken wings">
+                    <label for="chicken-wings">Chicken Wings — $6.00 per pack</label>
+                    <input id="chicken-wings" type="number" min="0" value="0" data-product="Chicken Wings" data-price="6">
+                </div>
+                <div class="product-option">
+                    <img src="Eggs.jpg" alt="Tray of eggs">
+                    <label for="egg-tray">Tray of Eggs — $5.00 each</label>
+                    <input id="egg-tray" type="number" min="0" value="0" data-product="Tray of Eggs" data-price="5">
+                </div>
+                <div class="product-option">
+                    <img src="RawChickenMeat1.jpg" alt="Raw chicken meat">
+                    <label for="raw-chicken">Raw Chicken Meat — $10.00 per pack</label>
+                    <input id="raw-chicken" type="number" min="0" value="0" data-product="Raw Chicken Meat" data-price="10">
+                </div>
+            </div>
 
-    menuButton.addEventListener('click', () => {
-      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-      menuButton.setAttribute('aria-expanded', String(!isOpen));
-      menuButton.setAttribute('aria-label', isOpen ? 'Open navigation' : 'Close navigation');
-      navigation.classList.toggle('open', !isOpen);
-    });
+            <div class="order-details">
+                <label for="customer-name">Your name</label>
+                <input type="text" id="customer-name" autocomplete="name" required>
 
-    navigation.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
-      menuButton.setAttribute('aria-expanded', 'false');
-      menuButton.setAttribute('aria-label', 'Open navigation');
-      navigation.classList.remove('open');
-    }));
+                <fieldset>
+                    <legend>Order method</legend>
+                    <label class="radio-option"><input type="radio" name="order-method" value="pickup" required> Pickup</label>
+                    <label class="radio-option"><input type="radio" name="order-method" value="delivery"> Delivery</label>
+                </fieldset>
+            </div>
+            <button type="submit">Send Order on WhatsApp</button>
+            <p id="order-status" role="status"></p>
+        </form>
+    </div>
 
-    document.querySelector('#year').textContent = new Date().getFullYear();
+    <div class="services" id="services">
+        <h2>Our Services</h2>
+        <p>We offer a wide range of poultry products and photography services to meet all your needs.</p>
+        <div class="photography">
+            <h1>Photography Services</h1>
+            <ul>
+                <li>Portrait Photography</li>
+                <li>Event Coverage</li>
+                <li>Product Photography</li>
+                <li>College Photography</li>
+                <li>Graduation Photography</li>
+            </ul>
+            <p>Professional photography for your personal needs.</p>
+            <img src="Photo.jpg" alt="Photography Services">
+        </div>
+        <div class="request" id="contact">
+            <h1>Request a Quote</h1>
+            <p>Contact us for a personalized quote for our services.</p>
+            <form action="mailto:business@example.com" method="post" enctype="text/plain">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
 
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
-    document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
-  </script>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">Send Request</button>
+            </form>
+        </div>
+    </div>
+    </main>
+
+    <script>
+        const navToggle = document.querySelector(".mobile-nav-toggle");
+        const siteNavigation = document.getElementById("site-navigation");
+
+        navToggle.addEventListener("click", function () {
+            const isOpen = this.getAttribute("aria-expanded") === "true";
+            this.setAttribute("aria-expanded", String(!isOpen));
+            siteNavigation.classList.toggle("is-open", !isOpen);
+        });
+
+        siteNavigation.addEventListener("click", function (event) {
+            if (event.target.closest("a")) {
+                siteNavigation.classList.remove("is-open");
+                navToggle.setAttribute("aria-expanded", "false");
+            }
+        });
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") {
+                siteNavigation.classList.remove("is-open");
+                navToggle.setAttribute("aria-expanded", "false");
+                navToggle.focus();
+            }
+        });
+
+        // Replace with the business number, including country code, without +, spaces, or dashes.
+        const whatsappNumber = "+264818038626";
+
+        document.getElementById("order-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const status = document.getElementById("order-status");
+            const products = Array.from(this.querySelectorAll("[data-product]"))
+                .map(input => ({ name: input.dataset.product, quantity: Number(input.value), price: Number(input.dataset.price) }))
+                .filter(product => product.quantity > 0);
+
+            if (!products.length) {
+                status.textContent = "Please select at least one product.";
+                return;
+            }
+            if (!whatsappNumber || !whatsappNumber.replace(/\D/g, "")) {
+                status.textContent = "Add the business WhatsApp number in the script first.";
+                return;
+            }
+
+            const total = products.reduce((sum, product) => sum + product.quantity * product.price, 0);
+            const lines = products.map(product => `- ${product.name} x${product.quantity}: $${(product.quantity * product.price).toFixed(2)}`);
+            const orderMethod = this.querySelector('input[name="order-method"]:checked').value;
+            const message = `Hello, I would like to place an order.\n\nName: ${document.getElementById("customer-name").value}\nOrder method: ${orderMethod}\n\n${lines.join("\n")}\n\nEstimated total: $${total.toFixed(2)}`;
+
+            try {
+                const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`;
+                const whatsappWindow = window.open(whatsappUrl, "_blank");
+
+                if (!whatsappWindow) {
+                    throw new Error("popup-blocked");
+                }
+
+                status.textContent = "Order details opened in WhatsApp. Please tap Send to complete your order.";
+                status.style.color = "green";
+            } catch (error) {
+                status.textContent = "Unable to open WhatsApp. Please allow pop-ups and try again.";
+                status.style.color = "red";
+            }
+        });
+    </script>
 </body>
 </html>
